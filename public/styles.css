@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f9f9f9;
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Use Bootstrap form controls with some spacing */
+form#todoForm {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+form#todoForm input[type="text"],
+form#todoForm select {
+  flex: 1 1 auto;
+  min-width: 150px;
+  padding: 0.5rem;
+  border-radius: 0.375rem; /* Bootstrap default */
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+}
+
+form#todoForm button,
+form#todoForm .cancel-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  border: none;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+form#todoForm button {
+  background-color: #0d6efd; /* Bootstrap primary */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+form#todoForm button:hover {
+  background-color: #0b5ed7;
+}
+
+form#todoForm .cancel-btn {
+  background-color: #6c757d; /* Bootstrap secondary */
+  color: white;
+  text-align: center;
+}
+
+form#todoForm .cancel-btn:hover {
+  background-color: #5c636a;
+}
+
+.todo-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.todo-list li {
+  background: white;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  font-size: 1rem;
+}
+
+.todo-list li span {
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+.todo-list li a,
+.todo-list li button {
+  margin-left: 0.5rem;
+  background: none;
+  border: none;
+  color: #0d6efd;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.todo-list li a:hover,
+.todo-list li button:hover {
+  text-decoration: underline;
+  color: #0a58ca;
+}
+
+/* Animations for todo items */
+.todo-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 0.5s forwards;
+}
+
+@keyframes fadeInSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item.removing {
+  animation: fadeOutSlideDown 0.4s forwards;
+}
+
+@keyframes fadeOutSlideDown {
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+/* Edit form highlight */
+form#todoForm.editing {
+  animation: editPulse 1s 2;
+  box-shadow: 0 0 0 4px #cfe2ff;
+}
+
+@keyframes editPulse {
+  0% { box-shadow: 0 0 0 0 #cfe2ff; }
+  50% { box-shadow: 0 0 0 8px #cfe2ff88; }
+  100% { box-shadow: 0 0 0 0 #cfe2ff; }
+}
