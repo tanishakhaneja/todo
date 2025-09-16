@@ -11,6 +11,27 @@ header, footer {
   margin-bottom: 1rem;
 }
 
+header h1 {
+  font-size: 2rem;
+  margin: 0.25rem 0 0.5rem;
+  color: #1976d2;
+  letter-spacing: 0.3px;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 1rem 1.25rem;
+}
+
+form#filterForm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
 form#todoForm {
   margin-bottom: 1rem;
   display: flex;
@@ -20,41 +41,28 @@ form#todoForm {
 }
 
 form#todoForm input[type="text"],
-body {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #f9f9f9;
-}
-
-header, footer {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-form#todoForm {
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-form#todoForm input[type="text"],
 form#todoForm select {
   flex: 1 1 auto;
   min-width: 150px;
   padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+form#todoForm input[type="text"]:focus,
+form#todoForm select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25,118,210,0.15);
 }
 
 form#todoForm button,
 form#todoForm .cancel-btn {
   padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   border: none;
   font-size: 1rem;
 }
@@ -71,6 +79,7 @@ form#todoForm button:hover {
 form#todoForm .cancel-btn {
   background-color: #888;
   color: white;
+  text-decoration: none;
 }
 
 form#todoForm .cancel-btn:hover {
@@ -87,12 +96,18 @@ form#todoForm .cancel-btn:hover {
   background: white;
   margin-bottom: 0.5rem;
   padding: 0.75rem 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   font-size: 1rem;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.todo-list li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 .todo-list li span {
@@ -103,16 +118,26 @@ form#todoForm .cancel-btn:hover {
 .todo-list li a,
 .todo-list li button {
   margin-left: 0.5rem;
-  background: none;
-  border: none;
+  background: #eef4fd;
+  border: 1px solid #d3e2fb;
   color: #1976d2;
   cursor: pointer;
   font-size: 0.9rem;
-  padding: 0;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
 }
 
 .todo-list li a:hover,
 .todo-list li button:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background: #e1edfd;
+  border-color: #c6dcfb;
   color: #1565c0;
+}
+
+footer p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
 }
